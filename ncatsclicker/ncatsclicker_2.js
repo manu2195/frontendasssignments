@@ -95,8 +95,12 @@
                     var admin=document.getElementById('Admin');
                     admin.addEventListener('click',function(){
                         console.log("bye");
-                        htmlStr= '<div id="form-elements">'+'New Name:'+ '<input type="text" name="nameOfCat" id="nameOfCat"><br>New Url:<input type="text" name="urlOfCat" id="urlOfCat"><br><br>  <input type="button" value="Save" id="save"></div>';
-
+                        htmlStr= '<div id="form-elements">New Name:<input type="text" name="nameOfCat" id="nameOfCat"><br>New Url:<input type="text" name="urlOfCat" id="urlOfCat"><br><br>  <input type="button" value="Save" id="save"></div>';
+                        // htmlStr= '<div id="form-elements">New Name:'+varibaleNeme+'<input type="text" name="nameOfCat" id="nameOfCat"><br>New Url:<input type="text" name="urlOfCat" id="urlOfCat"><br><br>  <input type="button" value="Save" id="save"></div>';
+                        // htmlStr= `<div id="form-elements">New Name:${variableName}<input type="text" name="nameOfCat" id="nameOfCat"><br>New Url:<input type="text" name="urlOfCat" id="urlOfCat"><br><br>  <input type="button" value="Save" id="save"></div>`;
+                        // htmlStr = 'akdn \n yagdak'
+                        // htmlStr = `akdn
+                         //               yagdak`;
                         form_elements.innerHTML=htmlStr;
                         var saveButton=document.getElementById('save');
                         saveButton.addEventListener('click',function(){
