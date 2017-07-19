@@ -18,6 +18,12 @@ var model = {
         getCats: function () {
             return model.data;
         }
+    },
+
+    setData: {
+        updateCount: function (index){
+            model.data[index].count++;
+        }
     }
 };
 
@@ -33,7 +39,7 @@ var model = {
         },
 
         onClickImageView: function(){
-            octopus.cats[octopus.currentCat].count++;
+            model.setData.updateCount(octopus.currentCat);
             view.render.catView(octopus.cats[octopus.currentCat]);
         },
 
