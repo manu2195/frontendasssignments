@@ -27,24 +27,17 @@ var model = {
         cats: undefined,
     
         init: function() {
-            octopus.currentCat= model.getData.getCat(0); 
+            octopus.currentCat= 0; 
             octopus.cats = model.getData.getCats();
             view.init(octopus.cats,octopus.currentCat);
         },
-        getCurrentCat: function(){
-             return octopus.currentCat;
-        },
-
-        setCurrentCat: function(cat){
-                octopus.currentCat=cat;
-        },
 
         onClickImageView: function(){
-            octopus.currentCat.count++;
-            view.render.catView(octopus.currentCat);
+            octopus.cats[octopus.currentCat].count++;
+            view.render.catView(octopus.cats[octopus.currentCat]);
         },
 
-        onClickListRow: function function_name(index) {
+        onClickListRow: function(index) {
             octopus.currentCat = index;
             view.render.catView(octopus.cats[index]);
         }
@@ -63,7 +56,7 @@ var view = {
             view.dom_elem.Dom_img.addEventListener('click',function(){
                 octopus.onClickImageView();
             });
-        view.render.catView(currentCat);
+        view.render.catView(cats[currentCat]);
     },
 
     render: {
@@ -80,9 +73,9 @@ var view = {
                 elem.textContent="Cat "+ (i+1).toString();
                 elem.addEventListener('click',(function (numCopy){
                     return function (){
-                        octopus.setCurrentCat(cats[numCopy]);
-                         view.render.catView(cats[numCopy]);
-                    }
+                    octopus.onClickListRow(numCopy);
+                }
+
                 })(i));
                 view.dom_elem.catlist_elem.appendChild(elem); //todo not render optimized
             }
@@ -90,10 +83,5 @@ var view = {
         }
     }
 };
-
-    
-
-
-   
 
     octopus.init();
